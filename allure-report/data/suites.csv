@@ -1,3 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"Creates a user and checks that the API returns the correct data.","3372","testCreateUserWithPOJO","API Suite","2026-05-20","passed","2026-05-20","api.tests.GetUserTest","API Tests","api.tests.GetUserTest","testCreateUserWithPOJO"
-"Retrieves a user by ID using a POJO response model and validates all returned fields.","1304","testGetUserWithPOJO","API Suite","2026-05-20","passed","2026-05-20","api.tests.GetUserTest","API Tests","api.tests.GetUserTest","testGetUserWithPOJO"
