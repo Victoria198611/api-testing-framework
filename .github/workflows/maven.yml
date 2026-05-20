@@ -1,4 +1,4 @@
-name: API Tests
+name: API Tests and Deploy Allure Report
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test:
+  test-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,8 +31,13 @@ jobs:
       - name: Run tests
         run: mvn clean test
 
-      - name: Upload Allure Results
-        uses: actions/upload-artifact@v4
+      - name: Generate Allure Report
+        run: |
+          npm install -g allure-commandline
+          allure generate target/allure-results --clean -o allure-report
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          name: allure-results
-          path: target/allure-results
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
