@@ -76,3 +76,7 @@ Ce am învățat din acest proiect
 •	Am înțeles cum GitHub detectează limbajele și cum se configurează .gitattributes
 •	Am învățat să citesc și să analizez răspunsurile API (status code, body, headers)
 •	Am înțeles importanța unui README profesionist pentru portofoliu.
+
+Autor
+Victoria — QA Automation Tester  
+Acest proiect a fost realizat ca parte a portofoliului meu profesional și pentru aprofundarea continuă a abilităților în testarea automată a API‑urilor.
