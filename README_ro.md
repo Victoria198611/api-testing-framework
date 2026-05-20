@@ -39,7 +39,7 @@ Framework ul generează automat:
 •	categorii
 •	timeline
 
-Raport Allure Online: 👉 https://victoria198611.github.io/api-testing-framework/
+Raport Allure Online: https://victoria198611.github.io/api-testing-framework/
 
 Fișierul environment.properties
 Acest fișier este copiat automat în target/allure-results și apare în raportul Allure.
