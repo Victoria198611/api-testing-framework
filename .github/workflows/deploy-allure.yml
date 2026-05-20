@@ -11,10 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Wait for artifact to be ready
-        run: sleep 20
+        run: sleep 30
 
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: List available artifacts
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const artifacts = await github.rest.actions.listArtifactsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+            console.log(artifacts.data.artifacts.map(a => a.name));
 
       - name: Download Allure Results
         uses: actions/download-artifact@v4
