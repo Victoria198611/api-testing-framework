@@ -9,6 +9,7 @@ public class UserResponse {
     private String job;
     private String id;
   private String createdAt;
+  private String updatedAt;
 
   //Returns the name sent in the request.
     public String getName() {
@@ -28,5 +29,9 @@ public class UserResponse {
     //Returns the timestamp when the user was created.
     public String getcreatedAt() {
         return createdAt;
+    }
+
+    public String getUpdatedAt(){
+        return updatedAt;
     }
 }
