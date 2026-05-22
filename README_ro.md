@@ -1,82 +1,73 @@
 Framework de testare API în Java cu RestAssured, TestNG și Allure Reporting
 
-Descriere
-Acest proiect reprezintă un framework modern pentru testarea API urilor, construit în Java și organizat pentru a fi ușor de extins, întreținut și folosit în proiecte reale. Include integrare completă cu Allure, generare de rapoarte, structură modulară și exemple de teste API.
- Tehnologii folosite
-•	Java 17
-•	RestAssured 5
-•	TestNG 7
-•	Allure TestNG + Allure RestAssured
-•	Maven
-•	Jackson pentru serializare/deserializare
-•	SLF4J pentru logging
+Acest proiect reprezintă un framework pentru testarea API urilor, construit în Java, folosind RestAssured, TestNG și Allure Reporting. Framework ul este structurat pentru a fi ușor de extins și utilizat în proiecte reale și include integrare completă cu Allure, modele POJO, logging și un pipeline CI/CD configurat cu GitHub Actions.
 
- Structura proiectului:
+Tehnologii folosite
+Java 17 RestAssured 5 TestNG 7 Allure TestNG și Allure RestAssured Maven Jackson pentru serializare și deserializare SLF4J pentru logging.
+
+Structura proiectului
+Cod
 src
- └── test
-      ├── java
-      │    ├── tests/        → Testele API
-      │    ├── models/       → Modele pentru request/response
-      │    ├── utils/        → Utilitare (config, helpers)
-      │    └── listeners/    → Integrare Allure
-      └── resources
-           └── environment.properties
+├── main
+│   └── java
+│       ├── org.example
+│       │   └── App
+│       └── utils
+│           └── ConfigReader
+
+└── test
+    ├── java
+    │   └── api
+    │       ├── models
+    │       │   ├── GetUserResponse
+    │       │   ├── Support
+    │       │   ├── UserData
+    │       │   ├── UserRequest
+    │       │   └── UserResponse
+    │       ├── services
+    │       │   ├── BaseService
+    │       │   └── UserService
+    │       └── tests
+    │           ├── GetUserTest
+    │           └── TestBase
+    └── resources
+        ├── config.properties
+        └── environment.properties
+
+pom.xml  
+testng.xml  
+README_eng.md  
+README_ro.md
 
 Cum rulezi testele
-1. Rulează testele
-Cod
-mvn clean test
-2. Generează raportul Allure
-Cod
-allure generate target/allure-results --clean
-allure open allure-report
+Comandă pentru rularea testelor: mvn clean test
+Generarea raportului Allure local: allure generate target/allure-results --clean allure open allure-report
 
- Rapoarte Allure
-Framework ul generează automat:
-•	rezultate test
-•	request/response pentru fiecare test
-•	environment
-•	categorii
-•	timeline
+Raport Allure Online
+Raportul Allure este generat automat de GitHub Actions și publicat pe GitHub Pages. Poate fi accesat aici: https://victoria198611.github.io/api-testing-framework/
 
-Raport Allure Online: https://victoria198611.github.io/api-testing-framework/
+Integrare CI/CD
+Proiectul este integrat cu GitHub Actions. La fiecare push pe branch ul main:
+– sunt rulate testele – este generat raportul Allure – raportul este publicat online
+Workflow ul rulează comanda mvn clean test și procesează automat fișierele Allure.
 
 Fișierul environment.properties
-Acest fișier este copiat automat în target/allure-results și apare în raportul Allure.
+Acest fișier este inclus automat în raportul Allure.
 Exemplu:
-Cod
-base.url=https://reqres.in
-environment=local
-api.version=v1
-tester=Victoria
+base.url=https://reqres.in environment=local api.version=v1 tester=Victoria
 
 Comenzi utile
-•	Listare rezultate:
-Cod
-ls target/allure-results
-•	Ștergere rezultate:
-Cod
-rm -r target/allure-results
+Listare rezultate Allure: ls target/allure-results
+Ștergere rezultate Allure: rm -r target/allure-results
 
-Funcționalități
-•	Testare API GET/POST/PUT/DELETE
-•	Validare status code
-•	Validare body JSON
-•	Logging request/response
-•	Integrare Allure pentru atașamente
-•	Structură scalabilă pentru proiecte mari
+Funcționalități ale framework ului
+Testare API pentru GET, POST, PUT și DELETE Validare status code Validare body JSON Logging complet pentru request și response Integrare Allure pentru atașamente, environment și timeline Structură scalabilă pentru proiecte mari
+
+Rezultate și metrici
+8 teste API (CRUD + negative) Execuții recente: 100% succes Raport Allure complet și publicat automat
 
 Ce am învățat din acest proiect
-•	Am înțeles cum se construiește un framework API modular folosind Java + RestAssured + TestNG
-•	Am învățat să structurez testele pe modele, utilitare și clase dedicate
-•	Am configurat și integrat Allure Reporting, inclusiv environment, atașamente și structură de raport
-•	Am învățat să lucrez cu Maven, pluginuri și configurări personalizate
-•	Am înțeles cum funcționează serializarea/deserializarea JSON cu Jackson
-•	Am învățat să folosesc Git și GitHub pentru versionare și publicare
-•	Am înțeles cum GitHub detectează limbajele și cum se configurează .gitattributes
-•	Am învățat să citesc și să analizez răspunsurile API (status code, body, headers)
-•	Am înțeles importanța unui README profesionist pentru portofoliu.
+– Construirea unui framework API modular în Java – Organizarea testelor pe modele, utilitare și clase dedicate – Integrarea Allure Reporting – Configurarea Maven și pluginuri – Serializare și deserializare JSON cu Jackson – Folosirea Git și GitHub pentru versionare și CI/CD – Configurarea fișierului .gitattributes – Analiza răspunsurilor API (status code, body, headers) – Crearea unui README profesionist pentru portofoliu
 
 Autor
-Victoria — QA Automation Tester  
-Acest proiect a fost realizat ca parte a portofoliului meu profesional și pentru aprofundarea continuă a abilităților în testarea automată a API‑urilor.
+Victoria – QA Automation Tester Acest proiect face parte din portofoliul meu profesional și reflectă progresul meu în testarea automată a API urilor.
