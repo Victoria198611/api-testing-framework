@@ -6,7 +6,6 @@ Technologies Used
 Java 17 RestAssured 5 TestNG 7 Allure TestNG and Allure RestAssured Maven Jackson for serialization and deserialization SLF4J for logging.
 
 Project Structure
-Cod
 src
 ├── main
 │   └── java
