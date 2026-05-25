@@ -6,7 +6,6 @@ Tehnologii folosite
 Java 17 RestAssured 5 TestNG 7 Allure TestNG și Allure RestAssured Maven Jackson pentru serializare și deserializare SLF4J pentru logging.
 
 Structura proiectului
-Cod
 src
 ├── main
 │   └── java
